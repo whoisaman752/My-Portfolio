@@ -2,10 +2,9 @@
   "name": "portfolio-fullstack",
   "version": "1.0.0",
   "description": "Full-stack portfolio website with contact API",
-  "main": "server.js",
+  "main": "api/script.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node api/script.js"
   },
   "keywords": [
     "portfolio",

@@ -7,8 +7,7 @@ const PORT = process.env.PORT || 3000;
 const DATA_FILE = path.join(__dirname, "data", "messages.json");
 
 app.use(express.json({ limit: "100kb" }));
-app.use(express.static(__dirname));
-
+app.use(express.static(path.join(__dirname, "..")));
 function validateContactPayload(body) {
   const name    = typeof body.name    === "string" ? body.name.trim()    : "";
   const email   = typeof body.email   === "string" ? body.email.trim()   : "";
@@ -71,10 +70,9 @@ app.post("/api/contact", async (req, res) => {
 });
 
 // Serve the portfolio HTML
-app.get("/", (_req, res) => {
-  res.sendFile(path.join(__dirname, "Portfolio.html"));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "Portfolio.html"));
 });
-
 app.listen(PORT, () => {
   console.log(`Portfolio server running on http://localhost:${PORT}`);
 });
